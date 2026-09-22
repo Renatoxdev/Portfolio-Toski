@@ -1,5 +1,8 @@
 import { socialLinks } from "@/data/site";
 function SocialIcon({ name }: { name: string }) {
+  if (name === "VGen") {
+    return <span className="social-icon-vgen" aria-hidden="true" />;
+  }
   return (
     <svg
       width="19"
@@ -28,6 +31,8 @@ function SocialIcon({ name }: { name: string }) {
           />
           <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
         </>
+      ) : name === "X" ? (
+        <path d="M4 3h4.5L20 21h-4.5L4 3Zm16 0L4 21" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
       ) : name === "ArtStation" ? (
         <g fill="currentColor">
           <path d="m9 3 11 18h-5L4 3h5Z" />
@@ -42,10 +47,13 @@ function SocialIcon({ name }: { name: string }) {
     </svg>
   );
 }
-export function SocialLinks({ compact = false }: { compact?: boolean }) {
+export function SocialLinks({ compact = false, names }: { compact?: boolean; names?: string[] }) {
+  const links = names
+    ? names.flatMap((name) => socialLinks.filter((link) => link.name === name))
+    : socialLinks.slice(0, compact ? 3 : 4);
   return (
     <div className={compact ? "social-links compact" : "social-links"}>
-      {socialLinks.slice(0, compact ? 3 : 4).map((link) => {
+      {links.map((link) => {
         const content = compact ? (
           <>
             <SocialIcon name={link.name} />

@@ -1,7 +1,7 @@
 import { PageShell } from "@/components/PageShell";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArtworkGrid } from "@/components/ArtworkGrid";
-export const metadata = { title: "Work" };
+export const metadata = { title: "Gallery" };
 export default function Work() {
   return (
     <PageShell className="work-page">

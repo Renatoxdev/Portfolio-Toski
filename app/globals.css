@@ -241,6 +241,7 @@ button:focus-visible {
   width: 38px;
 }
 .footer-right {
+  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -303,10 +304,48 @@ button:focus-visible {
   z-index: -1;
   object-fit: cover !important;
 }
+.landing-identity {
+  width: 520px;
+  max-width: 100%;
+  position: relative;
+}
+.landing-mark {
+  width: 144px;
+  height: 144px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+}
+.landing-profile-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.landing-profile-links .social-links {
+  gap: 24px;
+  color: var(--teal);
+}
+.landing-profile-links .social-links > * {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.social-icon-vgen {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: currentColor;
+  mask: url("/images/brand/vgen-outline.png") center / contain no-repeat;
+}
+.landing-profile-links .social-icon-vgen,
+.landing-profile-links svg {
+  width: 24px;
+  height: 24px;
+}
 .landing-panel {
   width: 520px;
   max-width: 100%;
-  padding: 32px 40px 38px;
+  padding: 48px 40px 38px;
   background: var(--paper);
   text-align: center;
   animation: arrive 0.6s ease-out;
@@ -1019,6 +1058,9 @@ button:focus-visible {
   .footer .social-links {
     gap: 14px;
   }
+  .landing-identity {
+    width: 480px;
+  }
   .landing-panel {
     width: 480px;
     padding: 32px;
@@ -1129,6 +1171,9 @@ button:focus-visible {
     padding: 37px 0 25px;
     text-align: center;
   }
+  .footer-right {
+    margin-left: 0;
+  }
   .footer .eyebrow {
     font-size: 7px;
   }
@@ -1139,6 +1184,9 @@ button:focus-visible {
   .landing {
     padding: 95px 23px 110px;
     min-height: 100svh;
+  }
+  .landing-identity {
+    width: 380px;
   }
   .landing-panel {
     padding: 32px 22px 36px;

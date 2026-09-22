@@ -1,6 +1,7 @@
 export const site = {
   name: "Toski",
-  subtitle: "Digital Artist & Illustrator",
+  landingMark: "/images/brand/toski-mascot.png",
+  subtitle: "Digital Artist",
   email: "hello@toski.art",
   description:
     "Portfolio of Toski, digital artist and illustrator focused on visual development, characters, environments and storytelling.",
@@ -13,17 +14,18 @@ export const site = {
   ],
 };
 export const navigation = [
-  { href: "/work", label: "Work" },
+  { href: "/", label: "Welcome" },
+  { href: "/work", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
 ];
 // Replace null with the artist's verified profile URL to activate each link.
 export const socialLinks: { name: string; href: string | null }[] = [
   { name: "Instagram", href: null },
   { name: "ArtStation", href: null },
   { name: "Bluesky", href: null },
-  { name: "Threads", href: null },
+  { name: "VGen", href: null },
+  { name: "X", href: null },
 ];
 export const clients = [
   "Independent Studios",

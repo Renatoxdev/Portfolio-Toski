@@ -31,7 +31,7 @@ export function Header() {
             key={item.href}
             href={item.href}
             onClick={() => setOpen(false)}
-            aria-current={path.startsWith(item.href) ? "page" : undefined}
+            aria-current={(item.href === "/" ? path === "/" : path.startsWith(item.href)) ? "page" : undefined}
           >
             {item.label}
           </Link>

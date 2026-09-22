@@ -1,28 +1,19 @@
 "use client";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import {
-  artworks,
-  categories,
-  type Category,
-  type Artwork,
-} from "@/data/artworks";
+import { artworks, type Artwork } from "@/data/artworks";
 export function ArtworkGrid() {
-  const [category, setCategory] = useState<Category>("All");
   const [selected, setSelected] = useState<Artwork>(artworks[0]);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
-  const visible = artworks.filter(
-    (a) => category === "All" || a.category === category,
-  );
   function open(art: Artwork, button: HTMLButtonElement) {
     opener.current = button;
     setSelected(art);
     dialog.current?.showModal();
   }
   function move(direction: number) {
-    const index = visible.findIndex((a) => a.id === selected.id);
-    setSelected(visible[(index + direction + visible.length) % visible.length]);
+    const index = artworks.findIndex((a) => a.id === selected.id);
+    setSelected(artworks[(index + direction + artworks.length) % artworks.length]);
   }
   return (
     <>
@@ -30,23 +21,12 @@ export function ArtworkGrid() {
         <span className="eyebrow selection-note">
           Selected works <span aria-hidden="true">/</span> 01—09
         </span>
-        <div className="filters" role="group" aria-label="Filter artworks">
-          {categories.map((c) => (
-            <button
-              key={c}
-              aria-pressed={category === c}
-              onClick={() => setCategory(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
       </div>
       <p className="sr-only" role="status">
-        {visible.length} artworks shown
+        {artworks.length} artworks shown
       </p>
-      <div className={`artwork-grid ${category !== "All" ? "filtered" : ""}`}>
-        {visible.map((art) => (
+      <div className="artwork-grid">
+        {artworks.map((art) => (
           <figure className={`artwork-card ${art.layout}`} key={art.id}>
             <button
               onClick={(e) => open(art, e.currentTarget)}
@@ -61,10 +41,6 @@ export function ArtworkGrid() {
                 sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 42vw"
               />
             </button>
-            <figcaption>
-              <span>{art.title}</span>
-              <span>{art.id}</span>
-            </figcaption>
           </figure>
         ))}
       </div>

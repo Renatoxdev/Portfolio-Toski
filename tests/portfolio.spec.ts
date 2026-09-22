@@ -32,21 +32,19 @@ for (const width of [375, 768, 1440]) {
     }
   });
 }
-test("Filters, artwork keyboard navigation and focus restoration", async ({
+test("Artwork keyboard navigation and focus restoration", async ({
   page,
 }) => {
   await page.goto("/work");
-  await page.getByRole("button", { name: "Characters", exact: true }).click();
-  await expect(page.locator(".artwork-card")).toHaveCount(2);
+  await expect(page.locator(".artwork-card")).toHaveCount(9);
   const opener = page.getByRole("button", { name: "View Character Study" });
   await opener.click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("ArrowRight");
-  await expect(page.locator("#artwork-title")).toHaveText("Creature Concepts");
+  await expect(page.locator("#artwork-title")).toHaveText("The Ancient Tree");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await expect(opener).toBeFocused();
-  await page.getByRole("button", { name: "All", exact: true }).click();
   await expect(page.locator(".artwork-card")).toHaveCount(9);
 });
 test("Mobile navigation and next project", async ({ page }) => {
@@ -67,20 +65,21 @@ test("Mobile navigation and next project", async ({ page }) => {
 });
 test("Core content and mobile links remain available without JavaScript", async ({
   browser,
+  baseURL,
 }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
     viewport: { width: 375, height: 812 },
   });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:3000/about");
+  await page.goto(`${baseURL}/about`);
   await expect(
     page.getByRole("heading", { name: "Hi, I’m Toski." }),
   ).toBeVisible();
   await expect(
     page
       .getByRole("navigation")
-      .getByRole("link", { name: "Work", exact: true }),
+      .getByRole("link", { name: "Gallery", exact: true }),
   ).toBeVisible();
   await context.close();
 });
