@@ -21,11 +21,11 @@ export const navigation = [
 ];
 // Replace null with the artist's verified profile URL to activate each link.
 export const socialLinks: { name: string; href: string | null }[] = [
-  { name: "Instagram", href: null },
+  { name: "Instagram", href: "https://www.instagram.com/toskisaurus/" },
+  { name: "X", href: "https://x.com/weird_dog_thing" },
+  { name: "VGen", href: "https://vgen.co/weird_dog_thing" },
+  { name: "Bluesky", href: "https://bsky.app/profile/weirddogthing.bsky.social" },
   { name: "ArtStation", href: null },
-  { name: "Bluesky", href: null },
-  { name: "VGen", href: null },
-  { name: "X", href: null },
 ];
 export const clients = [
   "Independent Studios",

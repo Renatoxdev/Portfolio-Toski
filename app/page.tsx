@@ -33,7 +33,7 @@ export default function Home() {
           </nav>
         </section>
         <div className="landing-profile-links" aria-label="Social profiles">
-          <SocialLinks compact names={["Instagram", "X", "VGen"]} />
+          <SocialLinks compact names={["Instagram", "X", "VGen", "Bluesky"]} />
         </div>
       </div>
     </main>
