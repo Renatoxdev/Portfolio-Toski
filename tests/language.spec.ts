@@ -5,7 +5,6 @@ test("Language choice translates pages, persists, and can be reversed", async ({
   await page.getByRole("button", { name: "Português (Brasil)", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
   await expect(page.getByText("Artista digital", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Pausar apresentação de fundo" })).toBeVisible();
   await page.getByRole("link", { name: "Sobre", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Olá, sou Toski." })).toBeVisible();
   await expect(page.getByText("Design de personagens", { exact: true })).toBeVisible();
