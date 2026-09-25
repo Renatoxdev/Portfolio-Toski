@@ -42,8 +42,8 @@ export function GalleryBackdrop() {
             alt=""
             fill
             sizes="100vw"
-            priority={index === 0}
-            loading={index === 0 ? undefined : "eager"}
+            fetchPriority={index === 0 ? "high" : undefined}
+            loading="eager"
             className={`backdrop-slide${index === active ? " is-active" : ""}`}
           />
         ))}

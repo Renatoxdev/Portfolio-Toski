@@ -19,7 +19,7 @@ export function ArtworkGrid() {
     <>
       <div className="gallery-toolbar">
         <span className="eyebrow selection-note">
-          Selected works <span aria-hidden="true">/</span> 01—09
+          Selected works <span aria-hidden="true">/</span> 01—{String(artworks.length).padStart(2, "0")}
         </span>
       </div>
       <p className="sr-only" role="status">
@@ -80,7 +80,7 @@ export function ArtworkGrid() {
             <div>
               <h2 id="artwork-title">{selected.title}</h2>
               <p className="eyebrow">
-                {selected.category} · {selected.id} · Placeholder
+                {selected.category} · {selected.id}
               </p>
             </div>
             <button onClick={() => move(1)} aria-label="Next artwork">

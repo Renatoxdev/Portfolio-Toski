@@ -36,16 +36,16 @@ test("Artwork keyboard navigation and focus restoration", async ({
   page,
 }) => {
   await page.goto("/work");
-  await expect(page.locator(".artwork-card")).toHaveCount(9);
-  const opener = page.getByRole("button", { name: "View Character Study" });
+  await expect(page.locator(".artwork-card")).toHaveCount(7);
+  const opener = page.getByRole("button", { name: "View Artwork 2520" });
   await opener.click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("ArrowRight");
-  await expect(page.locator("#artwork-title")).toHaveText("The Ancient Tree");
+  await expect(page.locator("#artwork-title")).toHaveText("Artwork 2521");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await expect(opener).toBeFocused();
-  await expect(page.locator(".artwork-card")).toHaveCount(9);
+  await expect(page.locator(".artwork-card")).toHaveCount(7);
 });
 test("Mobile navigation and next project", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });

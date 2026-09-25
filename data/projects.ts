@@ -1,3 +1,5 @@
+import { artworks } from "./artworks";
+
 const entries = [
   ["The Wandering Isle", "Personal project"],
   ["Amberlane", "Original world"],
@@ -22,21 +24,15 @@ export const projects = entries.map(([title, category], i) => ({
   note: "Project preview · Sample content",
   images: [
     {
-      src: `/images/artworks/${String((i % 9) + 1).padStart(2, "0")}.svg`,
-      width: 1600,
-      height: 900,
+      ...artworks[i % artworks.length],
       caption: "01 — World & atmosphere",
     },
     {
-      src: `/images/artworks/${String(((i + 2) % 9) + 1).padStart(2, "0")}.svg`,
-      width: 1000,
-      height: 1100,
+      ...artworks[(i + 2) % artworks.length],
       caption: "02 — Shape & character",
     },
     {
-      src: `/images/artworks/${String(((i + 4) % 9) + 1).padStart(2, "0")}.svg`,
-      width: 1000,
-      height: 1100,
+      ...artworks[(i + 4) % artworks.length],
       caption: "03 — Details & discoveries",
     },
   ],
