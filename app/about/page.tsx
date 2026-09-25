@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { BotanicalMark } from "@/components/BotanicalMark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { site, clients, services } from "@/data/site";
 export const metadata = { title: "About" };
@@ -9,15 +8,6 @@ export default function About() {
   return (
     <PageShell className="about-page">
       <div className="about-portrait">
-        <p className="about-mantra">
-          Good
-          <br />
-          Stories
-          <br />
-          Brighter
-          <br />
-          Worlds.
-        </p>
         <figure>
           <Image
             src="/images/about/portrait.svg"
@@ -27,12 +17,6 @@ export default function About() {
             sizes="(max-width:700px) 90vw, 40vw"
             priority
           />
-          <figcaption>
-            A quieter,
-            <br />
-            brighter tomorrow.
-            <span className="little-rule" />
-          </figcaption>
         </figure>
       </div>
       <aside className="about-facts">
@@ -59,7 +43,6 @@ export default function About() {
         </section>
       </aside>
       <section className="about-bio">
-        <BotanicalMark />
         <h1>Hi, I’m Toski.</h1>
         <p className="eyebrow">{site.subtitle}</p>
         <div className="biography">

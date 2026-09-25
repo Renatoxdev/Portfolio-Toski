@@ -20,20 +20,19 @@ export const projects = entries.map(([title, category], i) => ({
   year: "2026",
   image: `/images/projects/${String(i + 1).padStart(2, "0")}.svg`,
   description:
-    "A space for worldbuilding, quiet discoveries, and visual storytelling. This sample project presents the editorial structure for a collection of finished works, early sketches, and studies.",
-  note: "Project preview · Sample content",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   images: [
     {
       ...artworks[i % artworks.length],
-      caption: "01 — World & atmosphere",
+      caption: "01",
     },
     {
       ...artworks[(i + 2) % artworks.length],
-      caption: "02 — Shape & character",
+      caption: "02",
     },
     {
       ...artworks[(i + 4) % artworks.length],
-      caption: "03 — Details & discoveries",
+      caption: "03",
     },
   ],
 }));

@@ -6,10 +6,7 @@ export const metadata = { title: "Projects" };
 export default function Projects() {
   return (
     <PageShell className="projects-page">
-      <SectionHeading
-        mark
-        title="A curated selection of worlds, stories, and visual explorations."
-      />
+      <SectionHeading title="Projects" />
       <div className="project-grid">
         {projects.map((project) => (
           <ProjectCard project={project} key={project.slug} />

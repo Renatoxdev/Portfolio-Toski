@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
-import { BotanicalMark } from "@/components/BotanicalMark";
 import { projects } from "@/data/projects";
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
@@ -33,13 +32,11 @@ export default async function Project({
         ← All projects
       </Link>
       <div className="project-intro">
-        <BotanicalMark />
         <p className="eyebrow">
           {project.category} <span> / </span> {project.year}
         </p>
         <h1>{project.title}</h1>
         <p className="editorial-copy">{project.description}</p>
-        <p className="eyebrow sample-note">{project.note}</p>
       </div>
       <div className="project-spread">
         {project.images.map((img, i) => (
@@ -50,7 +47,7 @@ export default async function Project({
             >
               <Image
                 src={img.src}
-                alt={`Placeholder for ${project.title}: ${img.caption}`}
+                alt={img.alt}
                 fill
                 sizes={i === 0 ? "95vw" : "(max-width:600px) 95vw, 48vw"}
               />
@@ -60,9 +57,6 @@ export default async function Project({
         ))}
       </div>
       <div className="project-end">
-        <p className="editorial-quote">
-          Every world begins with a little curiosity.
-        </p>
         <Link href={`/projects/${next.slug}`} className="next-project">
           <span className="eyebrow">Next project ⟶</span>
           <span>{next.title}</span>

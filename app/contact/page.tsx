@@ -1,18 +1,11 @@
 import { PageShell } from "@/components/PageShell";
-import { BotanicalMark } from "@/components/BotanicalMark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { site } from "@/data/site";
 export const metadata = { title: "Contact" };
 export default function Contact() {
   return (
     <PageShell className="contact-page">
-      <BotanicalMark />
-      <p className="eyebrow">A conversation, a possibility, a new story.</p>
-      <h1>
-        Let’s create
-        <br />
-        <em>something together.</em>
-      </h1>
+      <h1>Contact</h1>
       <p className="availability">{site.availability}</p>
       <a className="contact-email" href={`mailto:${site.email}`}>
         {site.email}
@@ -24,7 +17,6 @@ export default function Contact() {
         your timeline, and what you have in mind.
       </p>
       <SocialLinks />
-      <p className="eyebrow contact-footnote">Good stories. Brighter worlds.</p>
     </PageShell>
   );
 }

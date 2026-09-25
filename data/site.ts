@@ -16,8 +16,8 @@ export const site = {
 export const navigation = [
   { href: "/", label: "Welcome" },
   { href: "/work", label: "Gallery" },
-  { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
 ];
 // Replace null with the artist's verified profile URL to activate each link.
 export const socialLinks: { name: string; href: string | null }[] = [
