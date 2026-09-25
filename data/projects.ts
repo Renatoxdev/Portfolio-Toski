@@ -1,17 +1,17 @@
 import { artworks } from "./artworks";
 
 const entries = [
-  ["The Wandering Isle", "Personal project"],
-  ["Amberlane", "Original world"],
-  ["Cloudreach", "Environment study"],
-  ["Fragments", "Character exploration"],
-  ["The Silent Grove", "Environment study"],
-  ["Nightfall", "Mood exploration"],
-  ["Kindred", "Creature design"],
-  ["Sailward", "Visual development"],
-  ["Small Moments", "Personal project"],
-  ["Beyond the Ridge", "Environment study"],
-  ["Echoes", "Visual exploration"],
+  ["The Wandering Isle", "personalProject"],
+  ["Amberlane", "originalWorld"],
+  ["Cloudreach", "environmentStudy"],
+  ["Fragments", "characterExploration"],
+  ["The Silent Grove", "environmentStudy"],
+  ["Nightfall", "moodExploration"],
+  ["Kindred", "creatureDesign"],
+  ["Sailward", "visualDevelopmentCategory"],
+  ["Small Moments", "personalProject"],
+  ["Beyond the Ridge", "environmentStudy"],
+  ["Echoes", "visualExploration"],
 ];
 export const projects = entries.map(([title, category], i) => ({
   title,

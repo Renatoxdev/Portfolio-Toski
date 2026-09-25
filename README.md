@@ -2,6 +2,14 @@
 
 Portfólio editorial em Next.js (App Router), TypeScript e Tailwind CSS. A composição segue as quatro referências em `referencias visuais/`; essas imagens não são publicadas como obras. As imagens exibidas e os projetos são placeholders explícitos.
 
+## Traduções
+
+O site usa `next-intl` com mensagens em `messages/en.json` e `messages/pt-BR.json`. Edite os dois arquivos mantendo as mesmas chaves. Os arquivos em `data/` referenciam essas chaves para categorias e textos traduzidos; nomes próprios dos projetos e lorem ipsum permanecem iguais.
+
+Use `getTranslations` de `next-intl/server` nos componentes assíncronos e `useTranslations` de `next-intl` nos componentes de cliente. Mensagens variáveis usam parâmetros ICU, como `artworkTitle` com `{number}`; `artworkCount` trata singular e plural.
+
+`i18n/request.ts` carrega as mensagens pelo cookie `toski-language`, validando o idioma e usando inglês como padrão. As bandeiras salvam a preferência e atualizam a página sem alterar as URLs. `NextIntlClientProvider` compartilha as mensagens com os componentes interativos.
+
 ## Executar
 
 Requer Node.js 20.9+ e npm.

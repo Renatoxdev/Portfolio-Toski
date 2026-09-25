@@ -1,12 +1,14 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getTranslations();
   return (
     <PageShell className="contact-page">
       <p className="eyebrow">404</p>
-      <h1>Page not found</h1>
+      <h1>{t("pageNotFound")}</h1>
       <Link className="pill-button" href="/work">
-        Back to work →
+        {t("backToWork")} →
       </Link>
     </PageShell>
   );

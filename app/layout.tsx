@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { site } from "@/data/site";
+import { getLocale, getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 const serif = localFont({
   src: [
@@ -27,32 +29,40 @@ const sans = localFont({
   variable: "--font-sans",
   display: "swap",
 });
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  const locale = await getLocale();
+  return {
   title: {
-    default: "Toski — Digital Artist & Illustrator",
+    default: `Toski — ${t("siteTitle")}`,
     template: "%s — Toski",
   },
-  description: site.description,
+  description: t(site.description),
   openGraph: {
-    title: "Toski — Digital Artist & Illustrator",
-    description: site.description,
+    title: `Toski — ${t("siteTitle")}`,
+    description: t(site.description),
     type: "website",
-    locale: "en_US",
+    locale: locale === "pt-BR" ? "pt_BR" : "en_GB",
     siteName: "Toski",
   },
 };
-export default function RootLayout({
+}
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+  const t = await getTranslations();
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang={locale} className={`${serif.variable} ${sans.variable}`}>
       <body>
+        <NextIntlClientProvider>
         <a className="skip-link" href="#main-content">
-          Skip to content
+          {t("skipToContent")}
         </a>
         {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

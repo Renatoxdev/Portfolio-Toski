@@ -1,3 +1,5 @@
+"use client";
+import { useTranslations } from "next-intl";
 import { socialLinks } from "@/data/site";
 function SocialIcon({ name }: { name: string }) {
   if (name === "VGen") {
@@ -48,6 +50,7 @@ function SocialIcon({ name }: { name: string }) {
   );
 }
 export function SocialLinks({ compact = false, names }: { compact?: boolean; names?: string[] }) {
+  const t = useTranslations();
   const links = names
     ? names.flatMap((name) => socialLinks.filter((link) => link.name === name))
     : socialLinks.slice(0, compact ? 3 : 4);
@@ -77,10 +80,10 @@ export function SocialLinks({ compact = false, names }: { compact?: boolean; nam
           <span
             className="unconfigured-social"
             key={link.name}
-            title={`${link.name} — profile link to be added`}
+            title={`${link.name} — ${t("profileLinkToBeAdded")}`}
           >
             {content}
-            <span className="sr-only"> — profile link to be added</span>
+            <span className="sr-only"> — {t("profileLinkToBeAdded")}</span>
           </span>
         );
       })}

@@ -1,8 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { artworks, type Artwork } from "@/data/artworks";
 export function ArtworkGrid() {
+  const t = useTranslations();
   const [selected, setSelected] = useState<Artwork>(artworks[0]);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
@@ -19,11 +21,11 @@ export function ArtworkGrid() {
     <>
       <div className="gallery-toolbar">
         <span className="eyebrow selection-note">
-          Selected works <span aria-hidden="true">/</span> 01—{String(artworks.length).padStart(2, "0")}
+          {t("selectedWorks")} <span aria-hidden="true">/</span> 01—{String(artworks.length).padStart(2, "0")}
         </span>
       </div>
       <p className="sr-only" role="status">
-        {artworks.length} artworks shown
+        {t("artworkCount", { count: artworks.length })}
       </p>
       <div className="artwork-grid">
         {artworks.map((art) => (
@@ -37,12 +39,12 @@ export function ArtworkGrid() {
           >
             <button
               onClick={(e) => open(art, e.currentTarget)}
-              aria-label={`View ${art.title}`}
+              aria-label={t("viewArtwork", { title: t("artworkTitle", { number: art.number }) })}
               className="artwork-button"
             >
               <Image
                 src={art.src}
-                alt={art.alt}
+                alt={t("artworkAlt", { number: art.number })}
                 width={art.width}
                 height={art.height}
                 sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 42vw"
@@ -69,28 +71,28 @@ export function ArtworkGrid() {
             className="lightbox-close eyebrow"
             onClick={() => dialog.current?.close()}
             autoFocus
-            aria-label="Close artwork"
+            aria-label={t("closeArtwork")}
           >
-            Close ×
+            {t("closeImage")}
           </button>
           <Image
             src={selected.src}
-            alt={selected.alt}
+            alt={t("artworkAlt", { number: selected.number })}
             width={selected.width}
             height={selected.height}
             sizes="90vw"
           />
           <div className="lightbox-caption">
-            <button onClick={() => move(-1)} aria-label="Previous artwork">
+            <button onClick={() => move(-1)} aria-label={t("previousArtwork")}>
               ←
             </button>
             <div>
-              <h2 id="artwork-title">{selected.title}</h2>
+              <h2 id="artwork-title">{t("artworkTitle", { number: selected.number })}</h2>
               <p className="eyebrow">
-                {selected.category} · {selected.id}
+                {t(selected.category)} · {selected.id}
               </p>
             </div>
-            <button onClick={() => move(1)} aria-label="Next artwork">
+            <button onClick={() => move(1)} aria-label={t("nextArtwork")}>
               →
             </button>
           </div>

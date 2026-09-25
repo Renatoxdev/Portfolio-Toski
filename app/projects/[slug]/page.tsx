@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,9 +12,10 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const t = await getTranslations();
   const { slug } = await params;
   return {
-    title: projects.find((p) => p.slug === slug)?.title ?? "Project not found",
+    title: projects.find((p) => p.slug === slug)?.title ?? t("projectNotFound"),
   };
 }
 export default async function Project({
@@ -21,6 +23,7 @@ export default async function Project({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const t = await getTranslations();
   const { slug } = await params;
   const index = projects.findIndex((p) => p.slug === slug);
   if (index === -1) notFound();
@@ -29,11 +32,11 @@ export default async function Project({
   return (
     <PageShell className="project-detail">
       <Link className="text-link eyebrow" href="/projects">
-        ← All projects
+        ← {t("allProjects")}
       </Link>
       <div className="project-intro">
         <p className="eyebrow">
-          {project.category} <span> / </span> {project.year}
+          {t(project.category)} <span> / </span> {project.year}
         </p>
         <h1>{project.title}</h1>
         <p className="editorial-copy">{project.description}</p>
@@ -47,7 +50,7 @@ export default async function Project({
             >
               <Image
                 src={img.src}
-                alt={img.alt}
+                alt={t("artworkAlt", { number: img.number })}
                 fill
                 sizes={i === 0 ? "95vw" : "(max-width:600px) 95vw, 48vw"}
               />
@@ -58,7 +61,7 @@ export default async function Project({
       </div>
       <div className="project-end">
         <Link href={`/projects/${next.slug}`} className="next-project">
-          <span className="eyebrow">Next project ⟶</span>
+          <span className="eyebrow">{t("nextProject")} ⟶</span>
           <span>{next.title}</span>
         </Link>
       </div>

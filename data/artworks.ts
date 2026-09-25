@@ -1,81 +1,73 @@
 export const categories = [
-  "All",
-  "Illustration",
-  "Characters",
-  "Environments",
-  "Sketches",
+  "all",
+  "illustration",
+  "characters",
+  "environments",
+  "sketches",
 ] as const;
 export type Category = (typeof categories)[number];
 export type Artwork = {
   id: string;
-  title: string;
-  category: Exclude<Category, "All">;
+  number: string;
+  category: Exclude<Category, "all">;
   src: string;
-  alt: string;
   width: number;
   height: number;
 };
 export const artworks: Artwork[] = [
   {
     "id": "01",
-    "title": "Artwork 2518",
-    "category": "Illustration",
+    "number": "2518",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2518.PNG",
-    "alt": "Artwork 2518 by Toski",
     "width": 4000,
     "height": 2250
   },
   {
     "id": "02",
-    "title": "Artwork 2519",
-    "category": "Illustration",
+    "number": "2519",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2519.PNG",
-    "alt": "Artwork 2519 by Toski",
     "width": 4000,
     "height": 2250
   },
   {
     "id": "03",
-    "title": "Artwork 2520",
-    "category": "Illustration",
+    "number": "2520",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2520.PNG",
-    "alt": "Artwork 2520 by Toski",
     "width": 4841,
     "height": 4000
   },
   {
     "id": "04",
-    "title": "Artwork 2521",
-    "category": "Illustration",
+    "number": "2521",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2521.PNG",
-    "alt": "Artwork 2521 by Toski",
     "width": 4000,
     "height": 4000
   },
   {
     "id": "05",
-    "title": "Artwork 2522",
-    "category": "Illustration",
+    "number": "2522",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2522.PNG",
-    "alt": "Artwork 2522 by Toski",
     "width": 2779,
     "height": 3508
   },
   {
     "id": "06",
-    "title": "Artwork 2523",
-    "category": "Illustration",
+    "number": "2523",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2523.PNG",
-    "alt": "Artwork 2523 by Toski",
     "width": 4000,
     "height": 2828
   },
   {
     "id": "07",
-    "title": "Artwork 2524",
-    "category": "Illustration",
+    "number": "2524",
+    "category": "illustration",
     "src": "/images/artworks/IMG_2524.PNG",
-    "alt": "Artwork 2524 by Toski",
     "width": 4000,
     "height": 2828
   }

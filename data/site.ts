@@ -1,23 +1,23 @@
 export const site = {
   name: "Toski",
   landingMark: "/images/brand/toski-mascot.png",
-  subtitle: "Digital Artist",
+  subtitle: "digitalArtist",
   email: "hello@toski.art",
   description:
-    "Portfolio of Toski, digital artist and illustrator focused on visual development, characters, environments and storytelling.",
+    "siteDescription",
   tagline: "Stories, characters and imaginary places.",
-  availability: "Open for commissions and collaboration opportunities.",
+  availability: "availability",
   biography: [
-    "I'm a digital artist and illustrator focused on characters, worlds and visual storytelling. My work explores a sense of wonder, the beauty of quiet moments, and places that feel like home — real or imagined.",
-    "From the first sketch to a fully imagined world, I’m drawn to the little details that make a story feel alive. I approach each image with curiosity, care, and room for the unexpected.",
-    "This is a space for those explorations: characters to meet, places to wander, and stories still waiting to be told.",
+    "biography1",
+    "biography2",
+    "biography3",
   ],
 };
 export const navigation = [
-  { href: "/", label: "Welcome" },
-  { href: "/work", label: "Gallery" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "welcome" },
+  { href: "/work", label: "gallery" },
+  { href: "/projects", label: "projects" },
+  { href: "/about", label: "about" },
 ];
 // Replace null with the artist's verified profile URL to activate each link.
 export const socialLinks: { name: string; href: string | null }[] = [
@@ -28,18 +28,18 @@ export const socialLinks: { name: string; href: string | null }[] = [
   { name: "ArtStation", href: null },
 ];
 export const clients = [
-  "Independent Studios",
-  "Game Studio",
-  "Animation Studio",
-  "Publishing",
-  "Freelance Clients",
+  "independentStudios",
+  "gameStudio",
+  "animationStudio",
+  "publishing",
+  "freelanceClients",
 ];
 export const services = [
-  "Character Design",
-  "Visual Development",
-  "Environment Art",
-  "Illustration",
-  "Concept Art",
-  "Storytelling",
-  "Art Direction",
+  "characterDesign",
+  "visualDevelopment",
+  "environmentArt",
+  "illustration",
+  "conceptArt",
+  "storytelling",
+  "artDirection",
 ];

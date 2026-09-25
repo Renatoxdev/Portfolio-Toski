@@ -4,7 +4,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navigation } from "@/data/site";
 import { Logo } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
 export function Header() {
+  const t = useTranslations();
   const path = usePathname();
   const [open, setOpen] = useState(false);
   return (
@@ -16,11 +19,11 @@ export function Header() {
         aria-controls="main-nav"
         onClick={() => setOpen(!open)}
       >
-        {open ? "Close −" : "Menu +"}
+        {t(open ? "closeMenu" : "menu")}
       </button>
       <nav
         id="main-nav"
-        aria-label="Main navigation"
+        aria-label={t("mainNavigation")}
         className={open ? "navigation is-open" : "navigation"}
         onKeyDown={(e) => {
           if (e.key === "Escape") setOpen(false);
@@ -33,10 +36,11 @@ export function Header() {
             onClick={() => setOpen(false)}
             aria-current={(item.href === "/" ? path === "/" : path.startsWith(item.href)) ? "page" : undefined}
           >
-            {item.label}
+            {t(item.label)}
           </Link>
         ))}
       </nav>
+      <LanguageSwitcher />
     </header>
   );
 }

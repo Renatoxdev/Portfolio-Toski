@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -8,10 +9,11 @@ import { artworks } from "@/data/artworks";
 const slides = artworks.filter(
   (art) =>
     art.width / art.height > 1.4 &&
-    (art.category === "Illustration" || art.category === "Environments"),
+    (art.category === "illustration" || art.category === "environments"),
 );
 
 export function GalleryBackdrop() {
+  const t = useTranslations();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -53,11 +55,11 @@ export function GalleryBackdrop() {
           className="backdrop-toggle eyebrow"
           onClick={() => setPaused((value) => !value)}
           aria-label={
-            paused ? "Play background slideshow" : "Pause background slideshow"
+            t(paused ? "playBackgroundSlideshow" : "pauseBackgroundSlideshow")
           }
           aria-pressed={paused}
         >
-          {paused ? "Play background ▷" : "Pause background Ⅱ"}
+          {t(paused ? "playBackground" : "pauseBackground")}
         </button>
       )}
     </>
