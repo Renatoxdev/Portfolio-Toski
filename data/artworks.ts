@@ -14,7 +14,6 @@ export type Artwork = {
   alt: string;
   width: number;
   height: number;
-  layout: string;
 };
 export const artworks: Artwork[] = [
   {
@@ -24,8 +23,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2518.PNG",
     "alt": "Artwork 2518 by Toski",
     "width": 4000,
-    "height": 2250,
-    "layout": "wide"
+    "height": 2250
   },
   {
     "id": "02",
@@ -34,8 +32,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2519.PNG",
     "alt": "Artwork 2519 by Toski",
     "width": 4000,
-    "height": 2250,
-    "layout": "square"
+    "height": 2250
   },
   {
     "id": "03",
@@ -44,8 +41,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2520.PNG",
     "alt": "Artwork 2520 by Toski",
     "width": 4841,
-    "height": 4000,
-    "layout": "sheet"
+    "height": 4000
   },
   {
     "id": "04",
@@ -54,8 +50,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2521.PNG",
     "alt": "Artwork 2521 by Toski",
     "width": 4000,
-    "height": 4000,
-    "layout": "portrait"
+    "height": 4000
   },
   {
     "id": "05",
@@ -64,8 +59,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2522.PNG",
     "alt": "Artwork 2522 by Toski",
     "width": 2779,
-    "height": 3508,
-    "layout": "concept"
+    "height": 3508
   },
   {
     "id": "06",
@@ -74,8 +68,7 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2523.PNG",
     "alt": "Artwork 2523 by Toski",
     "width": 4000,
-    "height": 2828,
-    "layout": "night"
+    "height": 2828
   },
   {
     "id": "07",
@@ -84,7 +77,6 @@ export const artworks: Artwork[] = [
     "src": "/images/artworks/IMG_2524.PNG",
     "alt": "Artwork 2524 by Toski",
     "width": 4000,
-    "height": 2828,
-    "layout": "moment"
+    "height": 2828
   }
 ];

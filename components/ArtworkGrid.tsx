@@ -27,7 +27,14 @@ export function ArtworkGrid() {
       </p>
       <div className="artwork-grid">
         {artworks.map((art) => (
-          <figure className={`artwork-card ${art.layout}`} key={art.id}>
+          <figure
+            className="artwork-card"
+            key={art.id}
+            style={{
+              flexGrow: art.width / art.height,
+              flexBasis: `${260 * (art.width / art.height)}px`,
+            }}
+          >
             <button
               onClick={(e) => open(art, e.currentTarget)}
               aria-label={`View ${art.title}`}

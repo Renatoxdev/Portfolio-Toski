@@ -28,7 +28,7 @@ export function GalleryBackdrop() {
     if (paused || reducedMotion || slides.length < 2) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) setActive((index) => (index + 1) % slides.length);
-    }, 6000);
+    }, 3000);
     return () => window.clearInterval(timer);
   }, [paused, reducedMotion]);
 
